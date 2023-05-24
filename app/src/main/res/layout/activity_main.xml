@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+
+    android:id="@+id/mainScroll"
+    tools:context=".controller.MainActivity">
+
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="167dp"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/applogo"
+            android:layout_width="62dp"
+            android:layout_height="62dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="90dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/logoapp"></ImageView>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginBottom="7dp"
+            android:layout_toRightOf="@+id/applogo"
+            android:gravity="center"
+            android:text="SapRaTruong"
+            android:textColor="@color/black"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black">
+
+        <ImageView
+            android:id="@+id/airhumiditylogo"
+            android:layout_width="55dp"
+            android:layout_height="62dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="30dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/airhumidity"></ImageView>
+
+        <TextView
+            android:id="@+id/txtAirHumidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginBottom="7dp"
+            android:layout_toRightOf="@+id/airhumiditylogo"
+            android:gravity="center"
+            android:text="Air Humidity: Loading"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+
+
+    </RelativeLayout>
+
+
+
+    <com.jjoe64.graphview.GraphView
+        android:id="@+id/graph1"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/black"
+        android:layout_margin="2dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black">
+        <ImageView
+            android:id="@+id/airtemperature"
+            android:layout_width="62dp"
+            android:layout_height="62dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/templogo"></ImageView>
+
+        <TextView
+            android:id="@+id/txtAirTemperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginBottom="3dp"
+            android:layout_toRightOf="@+id/airtemperature"
+            android:gravity="center"
+            android:text="Air Temperature: Loading"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+
+
+
+
+    </RelativeLayout>
+
+
+    <com.jjoe64.graphview.GraphView
+        android:id="@+id/graph2"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+
+        android:layout_margin="2dp"
+        android:background="@color/black" />
+
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/buttonPUMP"
+        android:layout_width="match_parent"
+        android:layout_height="61dp"
+        android:layout_marginLeft="15dp"
+        android:text="Open Door"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/buttonLED"
+        android:layout_width="match_parent"
+        android:layout_height="67dp"
+        android:layout_marginLeft="15dp"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:text="Turn LED" />
+
+
+</LinearLayout>
+    <!--    <com.github.angads25.toggle.widget.LabeledSwitch-->
+<!--        android:id="@+id/buttonLED"-->
+<!--        android:layout_width="119dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="16dp"-->
+<!--        android:textOff="LED OFF"-->
+<!--        android:textOn="LED ON"-->
+<!--        android:textSize="20sp"-->
+<!--        app:colorBorder="@color/colorAccent"-->
+<!--        app:on="false" />-->
+
+<!--    <com.github.angads25.toggle.widget.LabeledSwitch-->
+<!--        android:id="@+id/buttonPUMP"-->
+<!--        android:layout_width="119dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="16dp"-->
+<!--        android:textOff="PUMP OFF"-->
+
+<!--        android:textOn="PUMP ON"-->
+<!--        android:textSize="20dp"-->
+
+
+<!--        app:colorBorder="@color/colorAccent"-->
+<!--        app:on="false" />-->
+
+
+
+
+
+</ScrollView>
