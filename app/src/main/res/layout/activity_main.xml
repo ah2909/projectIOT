@@ -131,7 +131,7 @@
 
 
     <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/buttonPUMP"
+        android:id="@+id/openDoor"
         android:layout_width="match_parent"
         android:layout_height="61dp"
         android:layout_marginLeft="15dp"
@@ -147,6 +147,15 @@
         android:textColor="@color/black"
         android:textSize="15sp"
         android:text="Turn LED" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/buttonFAN"
+        android:layout_width="match_parent"
+        android:layout_height="67dp"
+        android:layout_marginLeft="15dp"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:text="Turn FAN" />
 
 
 </LinearLayout>

@@ -32,7 +32,7 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity {
     MQTTHelper mqttHelper;
     TextView txtAirTemp, txtAirHumidity;
-    SwitchCompat buttonLED, buttonFAN;
+    SwitchCompat buttonLED, buttonFAN, buttonDoor;
     GraphView airHumidityGraph, airTemperatureGraph;
 
     Alerts alertDialog;
@@ -50,7 +50,8 @@ public class MainActivity extends AppCompatActivity {
 
 //        txtAI = findViewById(R.id.txtAI);
         buttonLED = findViewById(R.id.buttonLED);
-        buttonFAN = findViewById(R.id.buttonPUMP);
+        buttonFAN = findViewById(R.id.buttonFAN);
+        //buttonDoor = findViewById(R.id.openDoor);
 
         airHumidityGraph = (GraphView) findViewById(R.id.graph1);
         airHumidityGraph.getGridLabelRenderer().setHorizontalLabelsVisible(false);
@@ -79,9 +80,9 @@ public class MainActivity extends AppCompatActivity {
                     public void onCheckedChanged(CompoundButton compoundButton,
                                                  boolean b) {
                         if (b == true) {
-                            sendDataMQTT("Fusioz/feeds/button1", "ON");
+                            sendDataMQTT("Fusioz/feeds/button1", "1");
                         } else {
-                            sendDataMQTT("Fusioz/feeds/button1", "OFF");
+                            sendDataMQTT("Fusioz/feeds/button1", "0");
                         }
                     }
                 });
@@ -92,9 +93,9 @@ public class MainActivity extends AppCompatActivity {
                     public void onCheckedChanged(CompoundButton compoundButton,
                                                  boolean b) {
                         if (b == true) {
-                            sendDataMQTT("Fusioz/feeds/fan", "ON");
+                            sendDataMQTT("Fusioz/feeds/fan", "1");
                         } else {
-                            sendDataMQTT("Fusioz/feeds/fan", "OFF");
+                            sendDataMQTT("Fusioz/feeds/fan", "0");
                         }
                     }
                 });
@@ -141,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void messageArrived(String topic, MqttMessage message) throws Exception {
-                Log.d("TEST",topic+ "***" +message.toString());
+                //Log.d("TEST",topic+ "***" +message.toString());
                 if (topic.contains("light-sensor-history")){
                     double x = Double.parseDouble(message.toString());
                     LocalDateTime time = LocalDateTime.now();
@@ -168,18 +169,22 @@ public class MainActivity extends AppCompatActivity {
 
 
                 else if(topic.contains("button1")){
-                    if (message.toString().equals("ON")){
+                    if (message.toString().equals("1")){
                         buttonLED.setChecked(true);
+                        Log.d("TEST",topic + " ON");
                     }else{
                         buttonLED.setChecked(false);
+                        Log.d("TEST",topic + " OFF");
                     }
                 }
 
                 else if(topic.contains("fan")){
-                    if(message.toString().equals("ON")) {
+                    if(message.toString().equals("1")) {
                         buttonFAN.setChecked(true);
+                        Log.d("TEST",topic + " ON");
                     }else{
                         buttonFAN.setChecked(false);
+                        Log.d("TEST",topic + " OFF");
                     }
                 }
             }
