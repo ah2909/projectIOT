@@ -52,7 +52,7 @@
         android:background="@color/black">
 
         <ImageView
-            android:id="@+id/airhumiditylogo"
+            android:id="@+id/lightlogo"
             android:layout_width="55dp"
             android:layout_height="62dp"
             android:layout_marginLeft="10dp"
@@ -61,16 +61,16 @@
             android:src="@drawable/airhumidity"></ImageView>
 
         <TextView
-            android:id="@+id/txtAirHumidity"
+            android:id="@+id/txtLight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="7dp"
             android:layout_marginBottom="7dp"
-            android:layout_toRightOf="@+id/airhumiditylogo"
+            android:layout_toRightOf="@+id/lightlogo"
             android:gravity="center"
-            android:text="Air Humidity: Loading"
+            android:text="Brightness: Loading"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
@@ -129,15 +129,6 @@
         android:layout_margin="2dp"
         android:background="@color/black" />
 
-
-    <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/openDoor"
-        android:layout_width="match_parent"
-        android:layout_height="61dp"
-        android:layout_marginLeft="15dp"
-        android:text="Open Door"
-        android:textColor="@color/black"
-        android:textSize="15sp" />
 
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/buttonLED"

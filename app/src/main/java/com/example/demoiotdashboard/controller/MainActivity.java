@@ -5,6 +5,7 @@ import androidx.appcompat.widget.SwitchCompat;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -31,35 +32,34 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
     MQTTHelper mqttHelper;
-    TextView txtAirTemp, txtAirHumidity;
-    SwitchCompat buttonLED, buttonFAN, buttonDoor;
-    GraphView airHumidityGraph, airTemperatureGraph;
+    TextView txtAirTemp, txtLight;
+    SwitchCompat buttonLED, buttonFAN;
+    GraphView airLightGraph, airTemperatureGraph;
 
     Alerts alertDialog;
 
     LineGraphSeries seriesAirTemperature = new LineGraphSeries<DataPoint>();
-    LineGraphSeries seriesAirHumidity = new LineGraphSeries<DataPoint>();
+    LineGraphSeries seriesLight = new LineGraphSeries<DataPoint>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         txtAirTemp = findViewById(R.id.txtAirTemperature);
-        txtAirHumidity = findViewById(R.id.txtAirHumidity);
+        txtLight = findViewById(R.id.txtLight);
 
 
 //        txtAI = findViewById(R.id.txtAI);
         buttonLED = findViewById(R.id.buttonLED);
         buttonFAN = findViewById(R.id.buttonFAN);
-        //buttonDoor = findViewById(R.id.openDoor);
 
-        airHumidityGraph = (GraphView) findViewById(R.id.graph1);
-        airHumidityGraph.getGridLabelRenderer().setHorizontalLabelsVisible(false);
-        airHumidityGraph.getGridLabelRenderer().setGridColor(Color.WHITE);
-        airHumidityGraph.getGridLabelRenderer().setVerticalLabelsColor(Color.WHITE);
-        airHumidityGraph.getGridLabelRenderer().setHorizontalLabelsColor(Color.WHITE);
-        airHumidityGraph.getGridLabelRenderer().setVerticalLabelsColor(Color.WHITE);
-        airHumidityGraph.getGridLabelRenderer().setHorizontalLabelsColor(Color.WHITE);
+        airLightGraph = (GraphView) findViewById(R.id.graph1);
+        airLightGraph.getGridLabelRenderer().setHorizontalLabelsVisible(false);
+        airLightGraph.getGridLabelRenderer().setGridColor(Color.WHITE);
+        airLightGraph.getGridLabelRenderer().setVerticalLabelsColor(Color.WHITE);
+        airLightGraph.getGridLabelRenderer().setHorizontalLabelsColor(Color.WHITE);
+        airLightGraph.getGridLabelRenderer().setVerticalLabelsColor(Color.WHITE);
+        airLightGraph.getGridLabelRenderer().setHorizontalLabelsColor(Color.WHITE);
 
         airTemperatureGraph = (GraphView) findViewById(R.id.graph2);
         airTemperatureGraph.getGridLabelRenderer().setHorizontalLabelsVisible(false);
@@ -147,10 +147,10 @@ public class MainActivity extends AppCompatActivity {
                     double x = Double.parseDouble(message.toString());
                     LocalDateTime time = LocalDateTime.now();
                     Date y = convertLocalDateTime(time);
-                    seriesAirHumidity.appendData(new DataPoint(y,x), true, 3, true);
-                    airHumidityGraph.addSeries(seriesAirHumidity);
-                    airHumidityGraph.onDataChanged(true, true);
-                    txtAirHumidity.setText("Air Humidity: "  + message.toString() + "%");
+                    seriesLight.appendData(new DataPoint(y,x), true, 3, true);
+                    airLightGraph.addSeries(seriesLight);
+                    airLightGraph.onDataChanged(true, true);
+                    txtLight.setText("Brightness: "  + message.toString() + "%");
                 }
 
 

@@ -24,7 +24,7 @@ public class MQTTHelper {
     public final String[] arrayTopics = { "Fusioz/feeds/sensor3", "Fusioz/feeds/fan","Fusioz/feeds/light-sensor-history","Fusioz/feeds/ai","Fusioz/feeds/button1"};
     final String clientId = "Fusioz";
     final String username = "Fusioz";
-    final String password = "aio_psEC48NJWQft5kx9CBuob0QUwHLj";
+    final String password = "aio_vvdP75y0A65YJ5TWPm01rlPLFqef";
 
     final String serverUri = "tcp://io.adafruit.com:1883";
 
